@@ -16,3 +16,7 @@ def budget(request):
     }
     return render(request, 'quickBudget/budget.html', context)
 
+
+def submit(request):
+    # Todo: add proper template for budget display
+    return HttpResponse("success!")

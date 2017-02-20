@@ -1,9 +1,19 @@
+<h1>Budget</h1>
+
 {% if categories_list %}
+<form action="{% url 'quickBudget:submit' %}" method="post">
+    {% csrf_token %}
+
     <ul>
     {% for category in categories_list %}
-        <li><a href="{ % url 'quickBudget:budget' category.id }/">{{ category.name }}</a></li>
+        <h3>{{ category.name }}</h3>
+        <input type="number" name="amount" id="amount{{ forloop.counter }}" value="0.00" />
+        <label>Amount:</label>
     {% endfor %}
     </ul>
+
+    <input type="submit" value="Create" />
+</form>
 {% else %}
     <p>No categories are available.</p>
 {% endif %}
