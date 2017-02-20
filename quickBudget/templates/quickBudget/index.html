@@ -1,9 +1,16 @@
-{% if categories_list %}
-    <ul>
-    {% for category in categories_list %}
-        <li><a href="{ % url 'quickBudget:budget' category.id }/">{{ category.name }}</a></li>
-    {% endfor %}
-    </ul>
-{% else %}
-    <p>No categories are available.</p>
-{% endif %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>QuickBudget</title>
+</head>
+<body>
+    <header>
+        <h1>QuickBudget</h1>
+        <h3>This is the landing page for the QuickBudget webapp.</h3>
+    </header>
+    <link>
+        <a href = "/quickBudget/budget">Create your budget!</a>
+    </p>
+</body>
+</html>
