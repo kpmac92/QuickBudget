@@ -1,17 +1,29 @@
 <h1>Budget</h1>
 
 {% if categories_list %}
+
+{% load static %}
+<script type="text/javascript" src='{% static "js/jquery-3.1.1.min.js" %}' ></script>
+{% load static %}
+<script type="text/javascript" src='{% static "js/budget.js" %}' ></script>
+
 <form action="{% url 'quickBudget:submit' %}" method="post">
     {% csrf_token %}
 
+    <h3>Monthly Income</h3>
+    <input type="number" name="incomeAmount" id="incomeAmount" value="0.00" />
+
+    <h3>Expenses:</h3>
     <ul>
     {% for category in categories_list %}
-        <h3>{{ category.name }}</h3>
-        <input type="number" name="amount" id="amount{{ forloop.counter }}" value="0.00" />
+        <h5>{{ category.name }}</h5>
+        <input type="number" name="amount" class="categoryAmount" id="amount{{ forloop.counter }}" value="0.00" />
         <label>Amount:</label>
     {% endfor %}
     </ul>
 
+    Total:
+    <input id="total" type="number" disabled value="0.00" /><br><br>
     <input type="submit" value="Create" />
 </form>
 {% else %}
