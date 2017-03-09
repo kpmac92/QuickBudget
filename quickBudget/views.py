@@ -9,12 +9,12 @@ def index(request):
     return render(request, 'quickBudget/index.html')
 
 
-def budget(request):
+def create_budget(request):
     categories_list = BudgetCategory.objects.order_by('-id')
     context = {
         'categories_list': categories_list,
     }
-    return render(request, 'quickBudget/budget.html', context)
+    return render(request, 'quickBudget/createBudget.html', context)
 
 
 def submit(request):

@@ -1,10 +1,9 @@
 $(document).ready(function() {
     //alert("budget.js executed.");
 
-    $(".categoryAmount").change(function() {
-        //alert("something changed");
-        $("#total").val(recalculateTotal());
-    });
+    $(".categoryAmount").change(recalculateTotal);
+
+    $("#incomeAmount").change(recalculateTotal);
 
 });
 
@@ -15,6 +14,6 @@ function recalculateTotal() {
         total -= $(this).val();
     });
 
-    return total;
+     $("#total").val(total);
 };
 

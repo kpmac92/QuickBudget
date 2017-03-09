@@ -6,6 +6,6 @@ from . import views
 app_name = 'quickBudget'
 urlpatterns = [
     url(r'^$', views.index, name='index'),
-    url(r'^budget$', views.budget, name='budget'),
+    url(r'^createBudget$', views.create_budget, name='createBudget'),
     url(r'^submit$', views.submit, name='submit'),
 ]
