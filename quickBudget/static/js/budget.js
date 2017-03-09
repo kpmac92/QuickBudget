@@ -3,8 +3,18 @@ $(document).ready(function() {
 
     $(".categoryAmount").change(function() {
         //alert("something changed");
-        $("#total").val($(this).val());
+        $("#total").val(recalculateTotal());
     });
 
 });
+
+function recalculateTotal() {
+    var total = $("#incomeAmount").val();
+
+    $(".categoryAmount").each(function(i) {
+        total -= $(this).val();
+    });
+
+    return total;
+};
 
