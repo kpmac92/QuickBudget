@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Your Budget</title>
+</head>
+<body>
+    <ul>
+    {% for category, amount in category_amounts.items %}
+        <h5>{{ category }}</h5>
+        Amount: {{ amount }}
+    {% endfor %}
+    </ul>
+</body>
+</html>

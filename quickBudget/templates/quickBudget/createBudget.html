@@ -17,7 +17,7 @@
     <ul>
     {% for category in categories_list %}
         <h5>{{ category.name }}</h5>
-        <input type="number" name="amount" class="categoryAmount" id="amount{{ forloop.counter }}" value="0.00" />
+        <input type="number" step="0.01" min="0.00" name="amount" class="categoryAmount" id="amount{{ forloop.counter }}" value="0.00" />
         <label>Amount:</label>
     {% endfor %}
     </ul>

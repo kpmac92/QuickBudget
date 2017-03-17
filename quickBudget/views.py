@@ -10,13 +10,19 @@ def index(request):
 
 
 def create_budget(request):
-    categories_list = BudgetCategory.objects.order_by('-id')
     context = {
-        'categories_list': categories_list,
+        'categories_list': get_category_list(),
     }
     return render(request, 'quickBudget/createBudget.html', context)
 
 
 def submit(request):
-    # Todo: add proper template for budget display
-    return HttpResponse("success!")
+    context = {
+        'category_amounts': dict(zip(get_category_list(), request.POST.getlist('amount', ['0.00'])))
+    }
+    print(context)
+    return render(request, 'quickBudget/displayBudget.html', context)
+
+
+def get_category_list():
+    return BudgetCategory.objects.order_by('-id')
